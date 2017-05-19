@@ -172,9 +172,17 @@ const run = (files, options = {}) => {
     color: options.color
   };
 
-  if (options.useReadme && fileExists('./README.md')) {
+  const readmeExists = fileExists('./README.md');
+  const useReadme = options.useReadme && readmeExists;
+
+  if (!readmeExists) {
+    log('No README found, continuing without');
+  }
+
+  data.readmeParts = useReadme ? parseReadme(data.readme) : [];
+
+  if (useReadme) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
-    data.readmeParts = parseReadme(data.readme);
   }
 
   pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {
