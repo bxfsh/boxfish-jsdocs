@@ -52,7 +52,7 @@ html
 
       section#methods
         if readme
-          div#readme
+          div#readme.container
             each val, key in readmeParts
               h2(id=kebabCase(key))= key
               div!= markdown(val)

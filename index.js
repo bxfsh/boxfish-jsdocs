@@ -179,11 +179,11 @@ const run = (files, options = {}) => {
     log('No README found, continuing without');
   }
 
-  data.readmeParts = useReadme ? parseReadme(data.readme) : [];
-
   if (useReadme) {
     data.readme = fs.readFileSync('./README.md', 'utf8');
   }
+
+  data.readmeParts = useReadme ? parseReadme(data.readme) : [];
 
   pug.renderFile(`${dockyPath}/template/template.pug`, data, (renderErr, html) => {
     if (renderErr) throw renderErr;
