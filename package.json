@@ -1,7 +1,7 @@
 {
   "name": "docky",
   "title": "Docky",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Generate Documentation for React Components",
   "main": "index.js",
   "scripts": {
