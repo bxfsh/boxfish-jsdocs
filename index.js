@@ -160,8 +160,6 @@ const run = (files, options = {}) => {
             process.exit(1);
           }
 
-          console.log(chalk.blue(`${file}`), '... ', chalk.green('OK'));
-
           return Object.assign(docs.props[prop], {
             name: prop,
             type: docs.props[prop].type.name,
@@ -171,6 +169,8 @@ const run = (files, options = {}) => {
           });
         });
       }
+
+      console.log(chalk.blue(`${file}`), '... ', chalk.green('OK'));
 
       return Object.assign(docs, {
         name: getComponentName(file),
