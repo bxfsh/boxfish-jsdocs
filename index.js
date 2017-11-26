@@ -143,7 +143,7 @@ const run = (files, options = {}) => {
       try {
         docs = docgen.parse(fs.readFileSync(file, 'utf8'));
       } catch (err) {
-        console.log(chalk.blue(`${file}`), chalk.grey(`... Skipped (${err})`));
+        console.log(chalk.grey(`${file}... Skipped (${err})`));
         return null;
       }
 
